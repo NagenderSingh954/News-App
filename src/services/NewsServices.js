@@ -190,7 +190,9 @@ export const NewsServices = {
       if (data.status !== 'ok') {
         throw new Error(data.message || 'API Error');
       }
-
+      if(data.articles.length==0){
+        return MOCK_ARTICLES
+      }
       return data.articles;
 
     } catch (error) {

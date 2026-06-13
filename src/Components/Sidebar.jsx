@@ -1,4 +1,5 @@
 import React from 'react'
+import { Globe,Briefcase,Cpu,Atom,Activity ,Trophy,Film,CloudSun} from 'lucide-react';
 
 const CATEGORIES = [
   { id: 'feed', name: 'Top Feed', icon: Globe },
@@ -17,9 +18,23 @@ const CATEGORIES = [
   };
 
 
-function Sidebar() {
+function Sidebar({
+  category,setCategory
+}) {
+  const handelcategory=(cat)=>{
+    setCategory(cat)
+  }
+
   return (
-    <div>Sidebar</div>
+   <>
+   <div className=' w-full h-100 ml-8'>
+      {CATEGORIES.map((e)=>(
+        <div key={e.id} className=' my-3'>
+          <button className='border-2 bg-blue-500 text-white p-3 rounded-xl' onClick={()=>{handelcategory(e.id)}}>{e.name}</button>
+        </div>
+      ))}
+   </div>
+   </>
   )
 }
 
